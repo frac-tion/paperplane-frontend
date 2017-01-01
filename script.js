@@ -16,6 +16,17 @@ $( document ).ready(function() {
   });
 });
 
+$('#showdevice').change(function() {
+  if($(this).is(':checked')){
+    console.log("START showing device on network");
+    $.get("/enable");
+  }
+  else {
+    console.log("STOP showing device on network");
+    $.get("/disable");
+  }
+});
+
 // Dropzone.options[id] = {
 //   paramName: 'file',
 //   maxFilesize: 20, // MB
