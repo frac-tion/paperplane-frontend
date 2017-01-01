@@ -3,7 +3,7 @@ Dropzone.autoDiscover = false;
 
 $( document ).ready(function() {
   console.log("getting peers");
-  $.get( "http://192.168.1.124:3000/peers", function( data ) {
+  $.get( "/peers", function( data ) {
     peers.devices = data;
     for (var i = 0; i < peers.devices.length; i++) {
       var dev = $('<div id="' + peers.devices[i].name + '" class="device dropzone">' +
