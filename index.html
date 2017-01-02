@@ -10,17 +10,25 @@
 
 <body>
   <div class="app">
-    <h2>Settings</h2>
+    <h2>This device</h2>
     <div class="settings-row">
-      <p>Show device on network</p>
+      <p>Show this device on network</p>
       <label class="switch">
         <input type="checkbox" checked id="showdevice">
         <div class="slider round"></div>
       </label>
     </div>
+    <p class="description">How this device looks to others</p>
+    <div class="device device-settings" id="device-settings">
+      <p class="small">Your device name</p>
+      <input class="device-name-input" type="text" value="zenbook.local">
+      <button class="device-name-btn">Change</button>
+      <!-- <p class="small">Your IP address</p>
+      <h3>Other Devices</h3> -->
+    </div>
 
     <div class="device-list" id="device-list">
-      <h2>Devices</h2>
+      <h2>Other Devices</h2>
       <p class="info">Drag files on devices to send them</p>
     </div>
   </div>

@@ -2,9 +2,17 @@ var peers = {devices: undefined};
 Dropzone.autoDiscover = false;
 
 $( document ).ready(function() {
-  console.log("getting peers");
+  getPeers();
+  setInterval(function() {
+    getPeers();
+  }, 50000);
+});
+
+function getPeers() {
+  console.log("updating peers");
   $.get( "/peers", function( data ) {
     peers.devices = data;
+    $(".dropzone").remove();
     for (var i = 0; i < peers.devices.length; i++) {
       var dev = $('<div id="' + peers.devices[i].name + '" class="device dropzone">' +
       '<h3>' + peers.devices[i].name + '</h3>' +
@@ -14,7 +22,7 @@ $( document ).ready(function() {
       $("#device-list").append(dev);
     }
   });
-});
+}
 
 $('#showdevice').change(function() {
   if($(this).is(':checked')){
