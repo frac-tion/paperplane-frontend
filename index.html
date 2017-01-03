@@ -10,27 +10,48 @@
 
 <body>
   <div class="app">
-    <h2>This device</h2>
-    <div class="settings-row">
-      <p>Show this device on network</p>
-      <label class="switch">
-        <input type="checkbox" checked id="showdevice">
-        <div class="slider round"></div>
-      </label>
-    </div>
-    <p class="description">How this device looks to others</p>
-    <div class="device device-settings" id="device-settings">
-      <p class="small">Your device name</p>
-      <input class="device-name-input" type="text" value="zenbook.local">
-      <button class="device-name-btn">Change</button>
-      <!-- <p class="small">Your IP address</p>
-      <h3>Other Devices</h3> -->
+
+    <div class="settings-column">
+      <h2>This Device</h2>
+      <div class="settings-row">
+        <p>Show this device on network</p>
+        <label class="switch">
+          <input type="checkbox" checked id="showdevice">
+          <div class="slider round"></div>
+        </label>
+      </div>
+
+      <p class="description">Your device name</p>
+      <div class="textinput-row">
+          <input class="settings-input" type="text" value="Jeff's Laptop">
+          <button class="settings-btn">Change</button>
+      </div>
+
+      <p class="description">Store received files in</p>
+      <div class="textinput-row">
+          <input class="settings-input" type="text" value="/home/jeff/Downloads">
+          <button class="settings-btn">Change</button>
+      </div>
+
+      <p class="description">How this device looks to others</p>
+      <div class="device device-settings">
+        <h3>Jeff's Laptop</h3>
+        <p>1234.1.1.1</p>
+      </div>
+
     </div>
 
-    <div class="device-list" id="device-list">
-      <h2>Other Devices</h2>
-      <p class="info">Drag files on devices to send them</p>
+    <div class="device-column">
+      <div class="device-list" id="device-list">
+        <h2>Other Devices</h2>
+        <p class="info">Drag files on devices to send them</p>
+        <div class="device dropzone">
+          <h3>No other devices on this network</h3>
+          <p>Make sure you are on the same network and Paperplane is running.</p>
+        </div>
+      </div>
     </div>
+
   </div>
 
   <script src='lib/jquery.min.js'></script>

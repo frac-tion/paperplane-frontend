@@ -17,19 +17,45 @@ h3 {
 }
 
 .app {
+  margin: 0 auto 2em;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+@media screen and (min-width: 480px) {
+  .settings-column,
+  .device-column {
+    width: 30em;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .app {
+    width: 65em;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.settings-column,
+.device-column {
   max-width: 30em;
-  margin: 0 auto;
+}
+.settings-column {
+
+}
+.device-column {
+
 }
 
+
 .device-list {
-  margin-top: 4em;
 }
 .device {
-  padding: 1em 2em;
   margin: 0.5em;
-  background-color: #fff;
-  border: 4px solid #fff;
+  padding: 1em 2em;
   border-radius: 0.3em;
+  border: 4px solid #fff;
+  background-color: #fff;
 }
 .device.on-dragover,
 .device:-moz-drag-over {
@@ -58,46 +84,78 @@ h3 {
 .settings-row {
   height: 4em;
   padding: 0 1em;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .description {
   padding-left: 1em;
+  margin-bottom: 0.5em;
 }
 .small {
   font-size: 0.8em;
   margin: 0;
 }
-.device-settings {
-  padding: 2em;
+
+.textinput-row {
+  padding: 0 1em;
+  margin-bottom: 2em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.device-name-input,
-.device-name-btn {
+.settings-input,
+.settings-btn {
+  width: 100%;
   height: 3rem;
-  font-weight: 600;
   border: none;
   border-radius: 0.3em;
 }
-.device-name-input {
-  font-size: 1.2em;
-  margin-top: 0.4em;
+.settings-input {
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  margin-bottom: 0.5em;
+  font-size: 1em;
   padding: 0 1em;
-  border: 2px solid #ddd;
 }
-.device-name-btn {
+.settings-btn {
+  flex-shrink: 0;
+
   padding: 0 1em;
   font-size: 1em;
-  background-color: #66d1ab;
+  font-weight: 600;
+  background-color: #7C8689;
   color: #fff;
+}
+@media screen and (min-width: 400px) {
+  .textinput-row {
+    flex-direction: row;
+  }
+  .settings-input,
+  .settings-btn {
+    width: auto;
+  }
+  .settings-input {
+    margin-bottom: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .settings-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 /* The switch - the box around the slider */
 .switch {
- position: relative;
- display: inline-block;
- width: 60px;
- height: 34px;
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
 /* Hide default HTML checkbox */
@@ -105,31 +163,31 @@ h3 {
 
 /* The slider */
 .slider {
- position: absolute;
- cursor: pointer;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- background-color: #cad4d7;
- -webkit-transition: .4s;
- transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cad4d7;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
 .slider:before {
- position: absolute;
- content: "";
- height: 26px;
- width: 26px;
- left: 4px;
- bottom: 4px;
- background-color: white;
- -webkit-transition: .4s;
- transition: .4s;
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
 input:checked + .slider {
- background-color: #66d1ab;
+  background-color: #66d1ab;
 }
 
 input:focus + .slider {
