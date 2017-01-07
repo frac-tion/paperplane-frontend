@@ -12,14 +12,24 @@ function getPeers() {
   console.log("updating peers");
   $.get( "/peers", function( data ) {
     peers.devices = data;
+
     $(".dropzone").remove();
-    for (var i = 0; i < peers.devices.length; i++) {
-      var dev = $('<div id="' + peers.devices[i].name + '" class="device dropzone">' +
-      '<h3>' + peers.devices[i].name + '</h3>' +
-      '<p>' + peers.devices[i].ip  + '</p>' +
-      '</div>');
-      dev.dropzone({ url: 'http://' + peers.devices[i].ip + ':' + peers.devices[i].port + '/upload' });
-      $("#device-list").append(dev);
+    if (peers.devices.length === 0) {
+       var dev = $('<div class="device dropzone">' +
+       '<h3>' + 'No other devices on this network' + '</h3>' +
+       '<p>' + 'Make sure you are on the same network and Paperplane is running.'  + '</p>' +
+       '</div>');
+        $("#device-list").append(dev);
+    }
+    else {
+      for (var i = 0; i < peers.devices.length; i++) {
+        var dev = $('<div id="' + peers.devices[i].name + '" class="device dropzone">' +
+        '<h3>' + peers.devices[i].name + '</h3>' +
+        '<p>' + peers.devices[i].ip  + '</p>' +
+        '</div>');
+        dev.dropzone({ url: 'http://' + peers.devices[i].ip + ':' + peers.devices[i].port + '/upload' });
+        $("#device-list").append(dev);
+      }
     }
   });
 }
