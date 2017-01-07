@@ -1,6 +1,6 @@
 var peers = {devices: undefined};
-setName();
-setReceiveDir();
+getName();
+getReceiveDir();
 Dropzone.autoDiscover = false;
 
 $( document ).ready(function() {
@@ -36,18 +36,31 @@ function getPeers() {
   });
 }
 
-function setName() {
+function getName() {
   $.get( "/setName", function( data ) {
     $('#deviceName').val(data.name);
   });
 }
 
-function setReceiveDir() {
+function getReceiveDir() {
   $.get( "/setDir", function( data ) {
     $('#receiveDir').val(data.dir);
   });
 }
 
+function setName() {
+  var name = $('#deviceName').val();
+  $.get( "/setName?name=" + name, function( data ) {
+    console.log(data);
+  });
+}
+
+function setReceiveDir() {
+  var dir = $('#receiveDir').val();
+  $.get( "/setDir?dir=" + dir, function( data ) {
+    console.log(data);
+  });
+}
 
 $('#showdevice').change(function() {
   if($(this).is(':checked')){

@@ -23,14 +23,14 @@
 
       <p class="description">Your device name</p>
       <div class="textinput-row">
-          <input id="deviceName" class="settings-input" type="text" value="Jeff's Laptop">
-          <button class="settings-btn">Change</button>
+          <input onchange="setName()" id="deviceName" class="settings-input" type="text" value="Jeff's Laptop">
+          <button onclick="setName()" class="settings-btn">Change</button>
       </div>
 
       <p class="description">Store received files in</p>
       <div class="textinput-row">
-          <input id="receiveDir" class="settings-input" type="text" value="/home/jeff/Downloads">
-          <button class="settings-btn">Change</button>
+          <input onchange="setReceiveDir()" id="receiveDir" class="settings-input" type="text" value="/home/jeff/Downloads">
+          <button onclick="setReceiveDir()" class="settings-btn">Change</button>
       </div>
 
       <p class="description">How this device looks to others</p>
