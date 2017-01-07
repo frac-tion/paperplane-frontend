@@ -1,6 +1,8 @@
 var peers = {devices: undefined};
 getName();
 getReceiveDir();
+updateLocalDevice();
+
 Dropzone.autoDiscover = false;
 
 $( document ).ready(function() {
@@ -53,12 +55,24 @@ function setName() {
   $.get( "/setName?name=" + name, function( data ) {
     console.log(data);
   });
+  updateLocalDevice();
 }
 
 function setReceiveDir() {
   var dir = $('#receiveDir').val();
   $.get( "/setDir?dir=" + dir, function( data ) {
     console.log(data);
+  });
+}
+
+function updateLocalDevice() {
+  $.get( "/getIp", function( data ) {
+    $.each(data.ip, function (i, item) {
+      ip = item;
+      $('#localIp').text(ip);
+      var name = $('#deviceName').val();
+      $('#localDeviceName').text(name);
+    });
   });
 }
 
